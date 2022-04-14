@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
 
+body {
+    height: 9999
+    px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -39,7 +44,7 @@ section {
     align-items:center;
     .hero {
         width: 100%;
-        height: 60%;
+        height: 80%;
         position: relative;
     }
     .hero img {
@@ -64,5 +69,45 @@ section {
         left: 10%;
         font-size: 100px;
         z-index: 2;
+    }
+}
+
+// scrollテスト
+@mixin cricle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #fcdbc3;
+}
+.scrollbox {
+    display: flex;
+    align-items: center;
+    background-color: #91d3f0;
+    width: 800px;
+    height: 300px;
+    margin: auto;
+    margin-top: 300px;
+    margin-bottom: 500px;
+    &__cricle {
+        @include cricle();
+    }
+}
+
+@mixin hoge($fSize: 10px) {
+    font-size: $fSize;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.scrollbox.js-trigger2 {
+    @include hoge();
+    .scrollbox__cricle2 {
+        @include cricle();
+    }
+}
+.scrollbox.js-trigger3 {
+    @include hoge();
+    .scrollbox__cricle3 {
+        @include cricle();
     }
 }
