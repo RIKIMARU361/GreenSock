@@ -40,31 +40,14 @@ tl.from(
     {opacity:1,x:30},
     "-=1",
 );
-
-// scrollテスト
-// const tl2 = gsap.timeline();
-// tl2.to(
-//     ".scrollbox__cricle",
-//     1,
-//     {x:900},
-//     "+=2",
-// );
-
-// gsap.to('.scrollbox__cricle',{
-//     x: 800,
-//     ScrollTrigger: {
-//         trigger: '.js-trigger',
-//         start: 'top center',
-//     }
-// });
-
 gsap.to('.scrollbox__cricle', { //アニメーションしたい要素を指定
-    x: 800, //横に800px動かす
     scrollTrigger: {
       trigger: '.js-trigger',//アニメーションが始まるトリガーとなる要素
       start: 'top center', //アニメーションが始まる位置を指定
       end: 'bottom center', //ア
       markers: true,
+      onEnter: ()=> gsap.to('.scrollbox__cricle', {x: 800}),
+      onLeave: ()=> gsap.to('.scrollbox__cricle', {x: 0})
     },
   });
 
